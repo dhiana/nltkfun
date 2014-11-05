@@ -20,7 +20,7 @@ if DEBUG:
     json_response = json.load(json_file)
     json_file.close()
 else:
-    url = 'http://tinysong.com/s/Bohemian-Rhapsody?format=json&key=%s' % os.environ.get('TINYSONG_KEY')
+    url = 'http://tinysong.com/s/You-Give-Love-A-Bad-Name?format=json&key=%s' % os.environ.get('TINYSONG_KEY')
     r = requests.get(url)
     json_response = r.json()
 
