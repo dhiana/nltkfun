@@ -13,6 +13,11 @@ def preproc(s):
     s = s.lower()
     return s
 
+def is_match(metric):
+    if (metric < 0.7):
+        return True
+    return False
+
 
 DEBUG = True
 if DEBUG:
@@ -53,3 +58,5 @@ for song in json_response[1:]:
     if len(this_word_bigrams) and len(top_entry_word_bigrams):
         wbg_distance = jaccard_distance(top_entry_word_bigrams, this_word_bigrams)
         print '\t\tWord bigrams + Jaccard:\t'+str(wbg_distance)
+        is_this_match = is_match(wbg_distance)
+        print '\t\tMatch?', is_this_match
