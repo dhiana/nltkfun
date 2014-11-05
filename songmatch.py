@@ -50,5 +50,6 @@ for song in json_response[1:]:
     print '\t\tChar bigrams + Jaccard:\t'+str(cbg_distance)
 
     this_word_bigrams = set(ngrams(word_tokenize(this_value), NGRAMS))
-    wbg_distance = jaccard_distance(top_entry_word_bigrams, this_word_bigrams)
-    print '\t\tWord bigrams + Jaccard:\t'+str(wbg_distance)
+    if len(this_word_bigrams) and len(top_entry_word_bigrams):
+        wbg_distance = jaccard_distance(top_entry_word_bigrams, this_word_bigrams)
+        print '\t\tWord bigrams + Jaccard:\t'+str(wbg_distance)
